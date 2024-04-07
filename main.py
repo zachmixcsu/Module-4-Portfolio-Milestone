@@ -97,7 +97,10 @@ def print_menu(shopping_cart):
             shopping_cart.remove_item(item_name)
         elif option == 'c':
             print("CHANGE ITEM QUANTITY")
-            shopping_cart.modify_item(item_name)
+            name = input("Enter the item name: ")
+            quantity = int(input("Enter new quantity: "))
+            item = ItemToPurchase(name, 0.0, quantity)
+            shopping_cart.modify_item(item)
         elif option == 'i':
             shopping_cart.print_descriptions()
         elif option == 'o':
@@ -111,6 +114,8 @@ def print_menu(shopping_cart):
 def main():
     customer_name = input("Enter customer's name: ")
     current_date = input("Enter today's date: ")
+    print(f'Customer name: {customer_name}')
+    print(f"Today's date: {current_date}")
     cart = ShoppingCart(customer_name, current_date)
     print_menu(cart)
 
